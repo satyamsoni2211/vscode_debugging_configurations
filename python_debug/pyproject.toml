@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "python_debug"
+version = "0.1.0"
+description = ""
+authors = ["satyam soni <satyamsoni@hotmail.co.uk>"]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.10"
+pydantic = "^1.10.4"
+PyMySQL = "^1.0.2"
+autopep8 = "^2.0.1"
+SQLAlchemy = "^2.0.0"
+fastapi = "^0.89.1"
+uvicorn = "^0.20.0"
+python-multipart = "^0.0.5"
+coverage = "^7.2.1"
+more-itertools = "^9.1.0"
+jmespath = "^1.0.1"
+flask = "^2.2.3"
+
+[tool.poetry.dev-dependencies]
+mypy = "^1.1.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.bandit]
+exclude_dirs = [".venv",".vscode",".git",".github",".pytest_cache",".mypy_cache",".coverage",".pytest_cache"]
+targets = ["."]

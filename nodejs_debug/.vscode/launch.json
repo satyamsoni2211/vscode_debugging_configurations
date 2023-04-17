@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        // Launching the app with nodemon
+        // without Docker support
+        {
+            "name": "Launch Program",
+            "program": "${workspaceFolder}/src/app.js",
+            "request": "launch",
+            "skipFiles": [
+                "node_modules/**"
+            ],
+            "type": "node",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
+            "console": "integratedTerminal",
+            "restart": true
+        },
+        // launching with Docker support
+        // debug enabled
+        {
+            "name": "Launch Docker",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "platform": "node",
+            "node": {
+                "remoteRoot": "/home/demo",
+                "localRoot": "${workspaceFolder}",
+                "package": "${workspaceFolder}/package.json",
+                "trace": true,
+                "stopOnEntry": true,
+                "port": 9229
+            },
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "remoteRoot": "/home/demo",
+            "localRoot": "${workspaceFolder}",
+            "name": "Attach Debugger",
+            "restart": true,
+            "port": 9229,
+        }
+    ]
+}

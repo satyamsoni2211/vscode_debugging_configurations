@@ -1,0 +1,52 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        //the only thing we need to take care is that 
+        // typescript
+        {
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "name": "debug typescript",
+            "request": "launch",
+            // reattaches debugger as soon as new build is there
+            // as we are using restart server
+            "restart": true,
+            // script to run 
+            "program": "${workspaceFolder}/src/app.ts",
+            // we are using nodemon executable
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
+            // we do not need to debug node_modules
+            "skipFiles": [
+                "node_modules/**"
+            ],
+            // generated files are in dist/ directory
+            "outFiles": [
+                "${workspaceFolder}/dist/**/*.js",
+                "!**/node_modules/**"
+            ],
+            // environment is node
+            "type": "node",
+            // sourcemaps are required for typescript debugging
+            "sourceMaps": true,
+            // compiling typescript is required for typescript debugging
+            "preLaunchTask": "tsc: tsconfig.json",
+            // watches dist/ directory for rebuilt files
+            "runtimeArgs": [
+                "-w",
+                "dist"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/app.ts",
+            "outFiles": [
+                "${workspaceFolder}/dist/**/*.js",
+                "!**/node_modules/**"
+            ],
+            "sourceMaps": true,
+            "name": "debug typescript w/o rerun",
+            "console": "integratedTerminal"
+        }
+    ]
+}

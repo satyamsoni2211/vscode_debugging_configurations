@@ -1,0 +1,63 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "docker-build",
+            "platform": "node",
+            "label": "docker-build: debug",
+            "dockerBuild": {
+                "context": "${workspaceFolder}",
+                "labels": {
+                    "server": "express",
+                    "environment": "development",
+                    "version": "1.0.0"
+                }
+            },
+            "node": {
+                "package": "${workspaceFolder}/package.json"
+            },
+        },
+        {
+            "type": "docker-run",
+            "label": "docker-run: debug",
+            "platform": "node",
+            "dependsOn": [
+                "docker-build: debug"
+            ],
+            "dockerRun": {
+                "volumes": [
+                    {
+                        "localPath": "${workspaceFolder}",
+                        "containerPath": "/home/demo",
+                    }
+                ],
+                "ports": [
+                    {
+                        "containerPort": 3000,
+                        "hostPort": 3000
+                    },
+                    {
+                        "containerPort": 9229,
+                        "hostPort": 9229
+                    }
+                ],
+                "remove": true,
+            },
+            "node": {
+                "inspectPort": 9229,
+                "package": "${workspaceFolder}/package.json",
+                // if you want task to automatically debug
+                "enableDebugging": true,
+                // "inspectMode": "auto"
+            }
+        },
+        {
+            "type": "npm",
+            "group": "build",
+            "promptOnClose": true,
+            "script": "debug",
+            "label": "npm: debug",
+            "isBackground": true
+        }
+    ]
+}

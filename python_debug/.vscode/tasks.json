@@ -1,0 +1,57 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "docker-build",
+            "platform": "python",
+            "label": "Build Python Docker Image",
+            "dockerBuild": {
+                "context": "${workspaceFolder}",
+                "dockerfile": "${workspaceFolder}/Dockerfile",
+                "labels": {
+                    "description": "Docker image for Python FastAPI",
+                    "version": "0.0.1"
+                }
+            },
+        },
+        {
+            "type": "docker-run",
+            "platform": "python",
+            "label": "docker-run: debug:python",
+            "dependsOn": [
+                "Build Python Docker Image"
+            ],
+            "dockerRun": {
+                "ports": [
+                    {
+                        "containerPort": 8080,
+                        "hostPort": 8080
+                    },
+                    {
+                        "containerPort": 52905,
+                        "hostPort": 52905
+                    }
+                ],
+                "volumes": [
+                    {
+                        "containerPath": "/app",
+                        "localPath": "${workspaceFolder}",
+                        "permissions": "rw"
+                    }
+                ],
+                "remove": false
+            },
+            "python": {
+                "args": [
+                    "--reload",
+                    "--host",
+                    "0.0.0.0",
+                    "--port",
+                    "8080",
+                    "fastapi_demo:app"
+                ],
+                "module": "uvicorn",
+            }
+        }
+    ]
+}

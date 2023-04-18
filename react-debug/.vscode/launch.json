@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        // Launch debugger in Chrome
+        {
+            "type": "chrome",
+            "name": "Debug React",
+            "webRoot": "${workspaceFolder}/src",
+            "request": "launch",
+            "url": "http://localhost:3000",
+            // run server before launch
+            "preLaunchTask": "npm: start"
+        },
+        // Launch debugger in Edge
+        {
+            "name": "Launch Edge",
+            "request": "launch",
+            "type": "msedge",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/src",
+            "preLaunchTask": "npm: start"
+        }
+    ]
+}

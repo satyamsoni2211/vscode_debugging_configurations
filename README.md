@@ -21,3 +21,11 @@ This repository has optimal debugging configurations for below:
   - [Flask Debugging configuration](python/.vscode/launch.json#L21)
   - [Flask Debugging configuration with Flask Cli](python/.vscode/launch.json#L31)
   - [Debugging Python Application in Docker](python/.vscode/launch.json#L48)
+
+For Official Documents on debugging with `Visual Studio Code`, refer [here](https://code.visualstudio.com/docs/editor/debugging).
+
+---
+
+Happy Debugging !😀
+
+Made with Love by [@satyamsoni](https://github.com/satyamsoni2211).

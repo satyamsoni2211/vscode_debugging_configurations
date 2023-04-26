@@ -34,6 +34,24 @@ For Official Documents on debugging with `Visual Studio Code`, refer [here](http
   ![Debugger](screenshots/Screenshot%202023-04-26%20at%207.38.01%20PM.png)
 - Select the appropriate configuration and launch.
 
+## Contributing
+
+---
+
+- Fork the Repository and create a new `feature` / `hotfix` branch.
+- Make you Code changes / Add a new configuration.
+- Please use proper `Linting` and `Formatting` in your code.
+- Raise a PR, I will review and merge the source code.
+- Reach out to me if you wanna be one of the collaborators.
+
+## License
+
+---
+
+`VSCODE Debugger Configurations` is released under the **MIT**.
+
+**tl;dr**: _"free to use as long as you credit me"_.
+
 ---
 
 Happy Debugging !😀

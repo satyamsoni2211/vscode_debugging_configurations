@@ -26,6 +26,16 @@ For Official Documents on debugging with `Visual Studio Code`, refer [here](http
 
 ---
 
+## Tips to use
+
+- Just copy over `.vscode` folder in your projects.
+- Every `.vscode` folder contains `launch.json` configuration file and `tasks.json` file for automated tasks.
+- Once, the folder is copied over, you would be able to see, debugging configurations under the `RUN AND DEBUG` section in the control pane.
+  ![Debugger](screenshots/Screenshot%202023-04-26%20at%207.38.01%20PM.png)
+- Select the appropriate configuration and launch.
+
+---
+
 Happy Debugging !😀
 
 Made with Love by [@satyamsoni](https://github.com/satyamsoni2211).

@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    // Launch debugger in Chrome
+    {
+      "type": "chrome",
+      "name": "Debug Vue App",
+      "webRoot": "${workspaceFolder}/src",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      // run server before launch
+      "preLaunchTask": "npm run dev"
+    },
+    // Launch debugger in Edge
+    {
+      "name": "Launch Edge",
+      "request": "launch",
+      "type": "msedge",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/src",
+      "preLaunchTask": "npm run dev"
+    }
+  ]
+}
